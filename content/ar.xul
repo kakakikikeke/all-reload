@@ -10,7 +10,7 @@
 	<script type="application/x-javascript" src="chrome://all_reload/content/ar.js" />
 
 	<menupopup id="contentAreaContextMenu">
-		<menuitem id="arMenu" accesskey="t" label="all reload" insertafter="context-bookmarkpage" oncommand="reloadAllTabs();" />
+		<menuitem id="arMenu" accesskey="a" label="all reload" insertafter="context-bookmarkpage" oncommand="reloadAllTabs();" />
 	</menupopup>
 
 </overlay>
