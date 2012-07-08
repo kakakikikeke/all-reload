@@ -1,0 +1,5 @@
+content 	all_reload 		jar:chrome/ar.jar!/content/
+locale		all_reload		en-US		jar:chrome/ar.jar!/locale/en-US/
+skin		all_reload		classic/1.0	jar:chrome/ar.jar!/skin/
+
+overlay chrome://browser/content/browser.xul  chrome://all_reload/content/ar.xul

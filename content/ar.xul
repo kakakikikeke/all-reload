@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+<?xml-stylesheet href="chrome://all_reload/skin/ar.css" type="text/css"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://all_reload/locale/all_reload.dtd">
+
+<overlay id="ar-browser-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<script type="application/x-javascript" src="chrome://all_reload/content/ar.js" />
+
+	<menupopup id="contentAreaContextMenu">
+		<menuitem id="arMenu" accesskey="t" label="all reload" insertafter="context-bookmarkpage" oncommand="reloadAllTabs();" />
+	</menupopup>
+
+</overlay>

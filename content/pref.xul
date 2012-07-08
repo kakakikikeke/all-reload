@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+
+<prefwindow id="ar-pref-window" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" 
+	title="Config all reload" bottons="accept,cancel">
+	<prefpane id="pref.general" label="general">
+		<preferences>
+			<preference id="extensions.ar.number" name="extensions.ar.number" type="string" />
+		</preferences>
+		<vbox>
+			<label id="number" value="Number of tabs" />
+			<textbox id="extensions.ar.number" preference="extensions.ar.number" />
+		</vbox>
+	</prefpane>
+</prefwindow>

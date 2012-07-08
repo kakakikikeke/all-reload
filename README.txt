@@ -1,0 +1,1 @@
+You will be able to reload all tabs at once from right click.
