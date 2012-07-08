@@ -13,7 +13,7 @@
 		<em:name>all reload</em:name>
 		<em:optionsURL>chrome://all_reload/content/pref.xul</em:optionsURL>
 		<em:updateInfoURL></em:updateInfoURL>
-		<em:version>0.1</em:version>
+		<em:version>0.2</em:version>
 		<em:type>2</em:type>
 		<em:unpack>true</em:unpack>
 		<em:localized>
