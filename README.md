@@ -1,4 +1,4 @@
-all_reload
+all-reload
 ==========
 You can reload all tabs.
 
