@@ -6,14 +6,14 @@
 		<em:aboutURL>chrome://all_reload/content/about.xul</em:aboutURL>
 		<em:creator>kakakikikeke</em:creator>
 		<em:description>Reload all tabs.</em:description>
-		<em:homepageURL>http://kakakikikeke.blogspot.com/</em:homepageURL>
+		<em:homepageURL>http://kakakikikeke.blogspot.com/2012/07/firefoxall-reload.html</em:homepageURL>
 		<em:iconURL>chrome://all_reload/skin/ar.png</em:iconURL>
 		<em:icon64URL>chrome://all_reload/skin/ar64.png</em:icon64URL>
 		<em:id>all_reload@kakakikikeke.blogspot.com</em:id>
 		<em:name>all reload</em:name>
 		<em:optionsURL>chrome://all_reload/content/pref.xul</em:optionsURL>
 		<em:updateInfoURL></em:updateInfoURL>
-		<em:version>0.4</em:version>
+		<em:version>0.4.26</em:version>
 		<em:type>2</em:type>
 		<em:unpack>true</em:unpack>
 		<em:localized>
@@ -22,7 +22,7 @@
 				<em:creator>kakakikikeke</em:creator>
 				<em:name>all reload</em:name>
 				<em:description>Reload all tabs.</em:description>
-				<em:homepageURL>http://kakakikikeke.blogspot.com/</em:homepageURL>
+				<em:homepageURL>http://kakakikikeke.blogspot.com/2012/07/firefoxall-reload.html</em:homepageURL>
 			</Description>
 		</em:localized>
 		<em:localized>
@@ -31,13 +31,13 @@
 				<em:creator>kakakikikeke</em:creator>
 				<em:name>all reload</em:name>
 				<em:description>Reload all tabs.</em:description>
-				<em:homepageURL>http://kakakikikeke.blogspot.com/</em:homepageURL>
+				<em:homepageURL>http://kakakikikeke.blogspot.com/2012/07/firefoxall-reload.html</em:homepageURL>
 			</Description>
 		</em:localized>
 		<em:targetApplication>
 			<Description>
 				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
-				<em:maxVersion>25.*</em:maxVersion>
+				<em:maxVersion>26.*</em:maxVersion>
 				<em:minVersion>1.0</em:minVersion>
 			</Description>
 		</em:targetApplication>
