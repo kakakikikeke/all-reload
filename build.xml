@@ -13,55 +13,35 @@
 			<available file="${ff.dir}" type="dir" />
 		</and>
 	</condition>
-	
-	<target name="chrome">
-		<mkdir dir="${dist.dir}" />
-		<zip destfile="${dist.dir}/${app.name}.jar">
-			<fileset dir="${src.dir}">
-				<include name="content/**" />
-				<include name="locale/**" />
-				<include name="skin/**" />
-				<exclude name="**/.*" />
-				<exclude name="**/CVS/**" />
-			</fileset>
-		</zip>
+
+	<target name="clean">
+		<delete dir="${dist.dir}" />
 	</target>
 
-	<target name="test.chrome" depends="chrome" if="ff.present">
+	<target name="clean.ff"  depends="clean" if="ff.present">
+		<delete dir="${ff.dir}/extensions/${app.id}" failonerror="false" />
+		<delete file="${ff.dir}/chrome/${app.name}.manifest" failonerror="false" />
+		<delete file="${ff.dir}/chrome/chrome/${app.name}.jar" failonerror="false" />
+	</target>
+
+	<target name="test.chrome" depends="clean.ff" if="ff.present">
 		<!-- copy to chrome directory -->
-		<copy file="${dist.dir}/${app.name}.jar" todir="${ff.dir}/chrome/chrome" overwrite="true" />
 		<copy file="${src.dir}/chrome.manifest" tofile="${ff.dir}/chrome/${app.name}.manifest" overwrite="true" />
 	</target>
 	
-	<!-- copy to extensions directory -->
-	<!--
-	<target name="test.ext" depends="chrome" if="ff.present">
-		<copy file="${dist.dir}/${app.name}.jar" todir="${ff.dir}/extensions/${app.id}/chrome" overwrite="true" />
-		<copy file="${src.dir}/chrome.manifest" todir="${ff.dir}/extensions/${app.id}" overwrite="true" />
-	</target>
-	-->
-	
-	<target name="dist" depends="chrome">
+	<target name="dist" depends="test.chrome">
 		<zip destfile="${dist.dir}/${app.name}.xpi">
-			<zipfileset file="${dist.dir}/${app.name}.jar" prefix="chrome"/>
 			<fileset dir="${src.dir}">
 				<include name="chrome.manifest" />
 				<include name="install.rdf" />
+				<include name="chrome/content/**"/>
+				<include name="chrome/locale/**"/>
+				<include name="chrome/skin/**"/>
 				<include name="defaults/**" />
 				<exclude name="**/.*" />
 				<exclude name="**/CVS/**" />
 			</fileset>
 		</zip>
-	</target>
-	
-	<target name="clean">
-		<delete dir="${dist.dir}" />
-	</target>
-
-	<target name="clean.ff"  if="ff.present">
-		<delete dir="${ff.dir}/extensions/${app.id}" failonerror="false" />
-		<delete file="${ff.dir}/chrome/${app.name}.manifest" failonerror="false" />
-		<delete file="${ff.dir}/chrome/chrome/${app.name}.jar" failonerror="false" />
 	</target>
 
 </project>
