@@ -14,7 +14,7 @@
 		<em:name>all reload</em:name>
 		<em:optionsURL>chrome://all_reload/content/pref.xul</em:optionsURL>
 		<em:updateInfoURL></em:updateInfoURL>
-		<em:version>0.4.48</em:version>
+		<em:version>0.4.48.1</em:version>
 		<em:type>2</em:type>
 		<em:unpack>true</em:unpack>
 		<em:localized>
