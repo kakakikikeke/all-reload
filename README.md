@@ -10,7 +10,7 @@ https://addons.mozilla.org/ja/firefox/addon/all-reload/
 使い方
 ------
 
-![all-reload-demo](https://1.bp.blogspot.com/-jqryX2YEB4Q/V3HtDVy2eBI/AAAAAAAAIvU/mVM0he1B_fIVwZWvWD4NB-8XMlohBoMzgCLcB/s1600/demo_all_reload.gif)
+![all-reload-demo](https://2.bp.blogspot.com/-fzQhSrJJHjo/V3H2uUH_YfI/AAAAAAAAIvw/HnmWw9xEmkc8HpgITMzvm6KQSRfCLXZ-gCLcB/s1600/demo_all_reload.gif)
 
 * 右クリック内のコンテキストメニューに「all reload」と表示されるので選択すれば全部のタブがリロードされます
 * コンテキストをメニューを開いて「a」を押してもリロードすることができます
