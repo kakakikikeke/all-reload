@@ -1,21 +1,21 @@
 all-reload
 ==========
-右クリックからすべてのタブをリロードすることができます。
+You can reload all tabs from right clicking context menu.
 
-インストール方法
-----------------
-以下の URL からインストールしてください。  
+How to install
+--------------
+Download addon from below URL.
 https://addons.mozilla.org/ja/firefox/addon/all-reload/
 
-使い方
-------
+How to use it
+-------------
 
 ![all-reload-demo](https://2.bp.blogspot.com/-fzQhSrJJHjo/V3H2uUH_YfI/AAAAAAAAIvw/HnmWw9xEmkc8HpgITMzvm6KQSRfCLXZ-gCLcB/s1600/demo_all_reload.gif)
 
-* 右クリック内のコンテキストメニューに「all reload」と表示されるので選択すれば全部のタブがリロードされます
-* コンテキストをメニューを開いて「a」を押してもリロードすることができます
+1. Show context menu by right click.
+2. Just click "all tabs reload".
 
-バグ・要望
-----------
+Bug Report
+-----------
 
-Issues または Pull requests で報告してもらえると助かります。
+Please sending an issue or pull-request on this repository.
