@@ -16,7 +16,7 @@ browser.menus.create({
   contexts: ["all"]
 }, onCreated);
 
-browser.menus.onClicked.addListener((info, tab) => {
+browser.menus.onClicked.addListener((info) => {
   switch (info.menuItemId) {
     case "all-reload":
       getCurrentWindowTabs().then(tabs => {
