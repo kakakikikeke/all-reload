@@ -1,14 +1,20 @@
 {
   "name": "all-reload",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "You can reload all tabs from context menu.",
-  "main": "main.js",
+  "main": "src/main.js",
   "scripts": {
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "jest",
+    "format": "prettier --write ."
   },
   "author": "kakakikikeke <cdl.yoshinaka@gmail.com>",
   "license": "MPL-2.0",
   "devDependencies": {
-    "eslint": "^9.23.0"
+    "eslint": "^9.23.0",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin-prettier": "^5.2.6",
+    "jest": "^29.7.0",
+    "prettier": "^3.5.3"
   }
 }

@@ -1,7 +1,9 @@
 # all-reload
+
 You can reload all tabs from right clicking context menu.
 
 ## How to install
+
 Download addon from below URL.
 https://addons.mozilla.org/ja/firefox/addon/all-reload/
 
@@ -17,11 +19,22 @@ https://addons.mozilla.org/ja/firefox/addon/all-reload/
 Please sending an issue or pull-request on this repository.
 
 ## Development
-### eslint
-* nvm use
-* npm i
-* npm fund && npm audit fix
-* npm run lint .
+
+### install
+
+- nvm use
+- npm i
+- npm fund && npm audit fix
+
+### format and lint
+
+- npm run format
+- npm run lint
+
+### test
+
+- npm run test
 
 ### build
-* sh build.sh
+
+- sh build.sh
