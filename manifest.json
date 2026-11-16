@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "all-reload",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "You can reload all tabs from context menu.",
   "icons": {
     "48": "icons/icon-48.png",
