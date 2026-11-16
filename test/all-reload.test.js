@@ -1,3 +1,5 @@
+const assert = require("node:assert/strict");
+const { beforeEach, describe, it } = require("node:test");
 const {
   onCreated,
   getCurrentWindowTabs,
@@ -5,95 +7,98 @@ const {
   reloadAll,
 } = require("../src/all-reload");
 
+let browser;
+
+beforeEach((context) => {
+  browser = {
+    runtime: {
+      lastError: null,
+    },
+    tabs: {
+      query: context.mock.fn(),
+      reload: context.mock.fn(),
+    },
+    i18n: {
+      getMessage: context.mock.fn(),
+    },
+  };
+  global.browser = browser;
+});
+
 describe("all-reload.js", () => {
-  beforeEach(() => {
-    global.browser = {
-      runtime: {
-        lastError: null,
-      },
-      tabs: {
-        query: jest.fn(),
-        reload: jest.fn(),
-      },
-      i18n: {
-        getMessage: jest.fn(),
-      },
-    };
-
-    jest.clearAllMocks();
-  });
-
   describe("onCreated", () => {
-    test("logs success message when no error", () => {
-      console.log = jest.fn();
+    it("logs success message when no error", (context) => {
+      const log = context.mock.method(console, "log", () => {});
       browser.runtime.lastError = null;
 
       onCreated();
 
-      expect(console.log).toHaveBeenCalledWith(
+      assert.deepEqual(log.mock.calls[0].arguments, [
         "all-reload item created successfully",
-      );
+      ]);
     });
 
-    test("logs error message when lastError exists", () => {
-      console.log = jest.fn();
+    it("logs error message when lastError exists", (context) => {
+      const log = context.mock.method(console, "log", () => {});
       browser.runtime.lastError = "some error";
 
       onCreated();
 
-      expect(console.log).toHaveBeenCalledWith("Error: some error");
+      assert.deepEqual(log.mock.calls[0].arguments, ["Error: some error"]);
     });
   });
 
   describe("getCurrentWindowTabs", () => {
-    test("calls browser.tabs.query with currentWindow true", () => {
-      browser.tabs.query.mockResolvedValue([]);
+    it("calls browser.tabs.query with currentWindow true", () => {
+      browser.tabs.query.mock.mockImplementation(() => Promise.resolve([]));
 
       getCurrentWindowTabs();
 
-      expect(browser.tabs.query).toHaveBeenCalledWith({ currentWindow: true });
+      assert.deepEqual(browser.tabs.query.mock.calls[0].arguments, [
+        { currentWindow: true },
+      ]);
     });
   });
 
   describe("getExtensionInfo", () => {
-    test("returns expected extension info object", () => {
-      browser.i18n.getMessage.mockReturnValue("Reload All");
+    it("returns expected extension info object", () => {
+      browser.i18n.getMessage.mock.mockImplementation(() => "Reload All");
 
       const info = getExtensionInfo();
 
-      expect(info).toEqual({
+      assert.deepEqual(info, {
         id: "all-reload",
         title: "Reload All",
         contexts: ["all"],
       });
-      expect(browser.i18n.getMessage).toHaveBeenCalledWith("menuItemReload");
+      assert.deepEqual(browser.i18n.getMessage.mock.calls[0].arguments, [
+        "menuItemReload",
+      ]);
     });
   });
 
   describe("reloadAll", () => {
-    test("reloads all tabs when menuItemId matches", async () => {
+    it("reloads all tabs when menuItemId matches", async () => {
       const tabs = [{ id: 1 }, { id: 2 }, { id: 3 }];
-      browser.tabs.query.mockResolvedValue(tabs);
+      browser.tabs.query.mock.mockImplementation(() => Promise.resolve(tabs));
 
       await reloadAll({ menuItemId: "all-reload" });
 
-      expect(browser.tabs.reload).toHaveBeenCalledTimes(3);
-      expect(browser.tabs.reload).toHaveBeenCalledWith(1, {
-        bypassCache: false,
-      });
-      expect(browser.tabs.reload).toHaveBeenCalledWith(2, {
-        bypassCache: false,
-      });
-      expect(browser.tabs.reload).toHaveBeenCalledWith(3, {
-        bypassCache: false,
-      });
+      assert.deepEqual(
+        browser.tabs.reload.mock.calls.map((call) => call.arguments),
+        [
+          [1, { bypassCache: false }],
+          [2, { bypassCache: false }],
+          [3, { bypassCache: false }],
+        ],
+      );
     });
 
-    test("does nothing when menuItemId does not match", async () => {
+    it("does nothing when menuItemId does not match", async () => {
       await reloadAll({ menuItemId: "other-id" });
 
-      expect(browser.tabs.query).not.toHaveBeenCalled();
-      expect(browser.tabs.reload).not.toHaveBeenCalled();
+      assert.equal(browser.tabs.query.mock.callCount(), 0);
+      assert.equal(browser.tabs.reload.mock.callCount(), 0);
     });
   });
 });
